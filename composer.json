@@ -1,0 +1,23 @@
+{
+	"name": "ppajer/searchresults",
+	"description": "A convenient way to get SERPs for further processing.",
+    "keywords": ["SERP", "search", "Google"],
+    "homepage": "https://github.com/ppajer/PHP-Search-Results",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Peter Pajer",
+            "email": "peter.p.pajer@gmail.com"
+        }
+    ],
+	"repositories": [
+		{
+			"type": "vcs",
+			"url": "https://github.com/ppajer/PHP-Search-Results"
+		}
+	],
+	"require": {
+		"ppajer/phpdomextractor": "*"
+	}
+}
