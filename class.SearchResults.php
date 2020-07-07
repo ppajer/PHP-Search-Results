@@ -7,12 +7,15 @@ class SearchResults  {
 	public $location;
 	public $results = [];
 
+	private static $autocompleteParameter = 'q';
 	private $lastPosition;
 	private $uule;
 
 	const ENDPOINT = 'http://www.google.com/search?q=';
 	const LOCATION_SECRET = 'w+CAIQICI';
 	const LOCATION_PARAM = '&uule=';
+	const AUTOCOMPLETE_FILE = '/canonical-names.json';
+	const AUTOCOMPLETE_FILE_SIMPLE = '/canonical-names.simple.json';
 	const RESULTS_PER_PAGE = 10;
 
 	private $scraper = null;
@@ -115,6 +118,30 @@ class SearchResults  {
 			$result[$opts['keyword']] = new self($opts);
 		}
 		return $result;
+	}
+
+	public static function autocompleteSearchLocation($lowPrecision = false) {
+		$file = $lowPrecision ? 
+				self::AUTOCOMPLETE_FILE_SIMPLE : 
+				self::AUTOCOMPLETE_FILE ;
+
+		if (isset($_REQUEST[self::$autocompleteParameter])) {
+			echo json_encode(
+				array_reduce(
+					json_decode(file_get_contents(dirname(__FILE__).$file), true), 
+					function ($result, $item) {
+						if (stripos($item, $_REQUEST[self::$autocompleteParameter]) !== false) {
+							$result[] = $item;
+						}
+						return $result;
+					}, array())
+				);
+		}
+		exit();
+	}
+
+	public static function setAutocompleteParam($param) {
+		self::$autocompleteParameter = $param;
 	}
 
 }

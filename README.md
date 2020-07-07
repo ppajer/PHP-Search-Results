@@ -26,6 +26,7 @@ class SearchResults {
 	public function __construct__(Array $args) : // Where $args is an Array with 'query', 'limit' and 'location' as possible keys.
 	public function get() : Array<Array> // Returns the results
 	public static function getMultiple(Array $args) : Array<SearchResults> // Returns an array of SearchResult objects
+	public static function autocompleteSearchLocation(String $query) : Array<String> // Returns an array of search locations
 }
 ```
 
@@ -67,6 +68,21 @@ $multipleWithLimits = [
 ];
 
 $results = SearchResults::getMultiple($multipleWithLimits);
-// Returns an array of SearchResult objects that can be looped over.
+// Returns an array of SearchResult objects
 // Results will have 5 and 2 pages respectively, from different locations.
+```
+
+### Location support
+
+The libraray includes a list of all canonical names supported by Google. You can use this list to find the canonical name of the location you're interested in. The list is quite large (74000 entries), so it is useful to offer autocomplete functionality to your users. You can do so by using your frontend solution of choice, coupled with the `autocompleteSearchLocation()` method on the backend. 
+
+To improve search speed and reduce memory usage, a simplified list is also provided - this trades precision for reduced size, with only 200 entries that should suit most low-precision location needs. Simply pass an optional parameter to the autocomplete method to fetch the simplified list.
+
+```(php)
+
+// This will listen to requests containing the q parameter and automatically return it to the browser
+SearchResults::autocompleteSearchLocation();
+
+// This does the same thing, but searched from the simplified list for improved speed
+SearchResults::autocompleteSearchLocation(true);
 ```
