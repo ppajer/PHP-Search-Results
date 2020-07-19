@@ -2,7 +2,7 @@
 
 namespace ppajer;
 
-use WebScraper;
+use \ppajer\WebScraper;
 
 class SearchResults  {
 
