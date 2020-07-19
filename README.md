@@ -1,4 +1,4 @@
-# PHP-Search-Results
+# SearchResults 
 
 A convenient way to get SERPs for further processing. Supports only Google currently, will become extendable in the future.
 
@@ -35,8 +35,8 @@ class SearchResults {
 Simply include the required files and provide search options to the constructor. These include: `query`, `limit` and `location`. 
 
 ```(php)
-require 'class.DOM_Extractor.php';
-require 'class.SearchResults.php';
+require 'Webscraper.php';
+require 'SearchResults.php';
 
 $search = [
 	'query' => 'Budapest', // The query to search

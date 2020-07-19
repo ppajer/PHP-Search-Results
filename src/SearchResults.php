@@ -1,5 +1,7 @@
 <?php
 
+namespace ppajer;
+
 class SearchResults  {
 
 	public $query;
@@ -14,8 +16,8 @@ class SearchResults  {
 	const ENDPOINT = 'http://www.google.com/search?q=';
 	const LOCATION_SECRET = 'w+CAIQICI';
 	const LOCATION_PARAM = '&uule=';
-	const AUTOCOMPLETE_FILE = '/canonical-names.json';
-	const AUTOCOMPLETE_FILE_SIMPLE = '/canonical-names.simple.json';
+	const AUTOCOMPLETE_FILE = '/../json/canonical-names.json';
+	const AUTOCOMPLETE_FILE_SIMPLE = '/../json/canonical-names.simple.json';
 	const RESULTS_PER_PAGE = 10;
 
 	private $scraper = null;
