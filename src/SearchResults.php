@@ -2,6 +2,8 @@
 
 namespace ppajer;
 
+use WebScraper;
+
 class SearchResults  {
 
 	public $query;

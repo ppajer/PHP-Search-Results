@@ -2,7 +2,7 @@
 	"name": "ppajer/searchresults",
 	"description": "A convenient way to get SERPs for further processing.",
     "keywords": ["SERP", "search", "Google"],
-    "homepage": "https://github.com/ppajer/PHP-Search-Results",
+    "homepage": "https://github.com/ppajer/SearchResults",
     "type": "library",
     "license": "MIT",
     "authors": [
@@ -11,15 +11,15 @@
             "email": "peter.p.pajer@gmail.com"
         }
     ],
-    "autoload": {  
-			"psr-4": {  
-			"ppajer\\": "src/"  
-		}  
+    "autoload": {
+			"psr-4": {
+				"ppajer\\": "src/"
+		}
 	},
 	"repositories": [
 		{
 			"type": "vcs",
-			"url": "https://github.com/ppajer/PHP-Search-Results"
+			"url": "https://github.com/ppajer/SearchResults"
 		}
 	],
 	"require": {
