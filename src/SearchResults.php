@@ -108,7 +108,10 @@ class SearchResults  {
 			foreach ($page['results'] as $result) {
 				$result['position'] = $this->lastPosition;
 				$this->results[$this->lastPosition] = array_map(function($key) {
-					return is_array($key) ? $key[0] : $key;
+					if (is_array($key)) {
+						return count($key) ? $key[0] : '';
+					}
+					return $key;
 				}, $result);
 				$this->lastPosition++;
 			}
