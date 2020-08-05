@@ -7,6 +7,8 @@ date_default_timezone_set('Europe/Budapest');
 
 require '../src/SearchResults.php';
 
+use \ppajer\SearchResults;
+
 SearchResults::setAutocompleteParam('term');
 SearchResults::autocompleteSearchLocation();
 
